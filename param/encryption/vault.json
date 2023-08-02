@@ -1,0 +1,10 @@
+[
+  {
+    "name"        : "vault",
+    "description" : "vault_description",
+    "algorithm"   : "AES",
+    "cipher"      : "cipher",
+    "size"        : 32,
+    "hardware"    : false
+  }
+]

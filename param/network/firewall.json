@@ -1,0 +1,20 @@
+[
+    {
+        "name"        : "edge",
+        "description" : "Allowed ports for the internet facing web tier",
+        "class"       : 0,
+        "stage"       : 0,
+        "ingress"     : true,
+        "port"        : "port_name",
+        "zone"        : "zone_name"
+    },
+    {
+        "name"        : "domain",
+        "description" : "Allowed ports for the application tier",
+        "class"       : 0,
+        "stage"       : 0,
+        "ingress"     : true,
+        "port"        : "port_name",
+        "zone"        : "zone_name"
+    }
+]

@@ -1,0 +1,20 @@
+{
+    "lifecycle" : {
+        "DEV" : 0,
+        "SIT" : 1,
+        "UAT" : 2,
+        "PRD" : 3
+    },
+    "contract" : {
+        "FREE_TIER" : 0,
+        "TRIAL"     : 1,
+        "PAYG"      : 2,
+        "UCC"       : 3  
+    },
+    "class" : {
+        "ISO" : 0,
+        "PRV" : 1,
+        "PUB" : 2,
+        "CIS" : 3  
+    }
+}

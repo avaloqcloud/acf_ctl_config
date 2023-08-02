@@ -1,0 +1,11 @@
+[
+  {
+    "name"    : "rsa",
+    "message" : "message",
+    "method"  : "SHA_224_RSA_PKCS1_V1_5"
+  },{
+    "name"    : "ecdsa",
+    "message" : "message",
+    "method"  : "ECDSA_SHA_256"
+  }
+]

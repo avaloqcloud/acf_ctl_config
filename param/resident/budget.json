@@ -1,0 +1,9 @@
+[
+  {
+    "name"       : "budget",
+    "reference"  : "ref",
+    "term"       : "term",
+    "amount"     : 100,
+    "correction" : 1
+  }
+]

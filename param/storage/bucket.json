@@ -1,0 +1,8 @@
+[
+    {
+      "name"        : "bucket",
+      "description" : "bucket_instance",
+      "class"       : 0,
+      "stage"       : 0
+    }
+]

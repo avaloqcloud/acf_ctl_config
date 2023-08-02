@@ -1,0 +1,9 @@
+[
+  {
+    "name"    : "core",
+    "cidr"    : "10.0.0.0/16",
+    "gateway" : "gateway_name",
+    "subnet"  : "subnet_name",
+    "ipv6"    : false 
+  }
+]

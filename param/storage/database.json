@@ -1,0 +1,54 @@
+[
+  {
+    "name"    : "TRANSACTION_PROCESSING",
+    "type"    : "OLTP",
+    "class"   : 0,
+    "stage"   : 0,
+    "size"    : "SMALL",
+    "backup"  : "backup",
+    "managed" : true,
+    "version" : "19c",
+    "model"   : "autonomous",
+    "license" : "LICENSE_INCLUDED",
+    "secret"  : "database"
+  },
+  {
+    "name"     : "DATA_WAREHOUSE",
+    "type"     : "DW",
+    "class"   : 0,
+    "stage"   : 0,
+    "size"    : "MEDIUM",
+    "backup"  : "backup",
+    "managed" : true,
+    "version" : "19c",
+    "model"   : "autonomous",
+    "license" : "LICENSE_INCLUDED",
+    "secret"  : "database"
+  },
+  {
+    "name"     : "APEX",
+    "type"     : "APEX",
+    "class"   : 0,
+    "stage"   : 0,
+    "size"    : "SMALL",
+    "backup"  : "backup",
+    "managed" : true,
+    "version" : "19c",
+    "model"   : "autonomous",
+    "license" : "LICENSE_INCLUDED",
+    "secret"  : "database"
+  },
+  {
+    "name"     : "JSON",
+    "type"     : "AJD",
+    "class"   : 0,
+    "stage"   : 0,
+    "size"    : "SMALL",
+    "backup"  : "backup",
+    "managed" : true,
+    "version" : "19c",
+    "model"   : "autonomous",
+    "license" : "LICENSE_INCLUDED",
+    "secret"  : "database"
+  }
+]

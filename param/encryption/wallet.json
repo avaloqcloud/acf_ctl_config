@@ -1,0 +1,10 @@
+[
+    {
+      "name"      : "wallet",
+      "class"     : "main_description",
+      "stage"     : "AES",
+      "vault"     : "vault_name",
+      "secret"    : "secret_name",
+      "signature" : "signature_name"
+    }
+  ]

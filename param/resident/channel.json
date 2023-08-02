@@ -1,0 +1,12 @@
+[
+    {
+        "name"         : "channel",
+        "description"  : "description",
+        "class"        : 0,
+        "stage"        : 0,
+        "service"      : "service",
+        "address"      : "address",
+        "alert"        : "alert_name",
+        "notification" : "notification_name"
+    }
+]

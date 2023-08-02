@@ -1,0 +1,23 @@
+[
+  {
+    "name"        : "service",
+    "description" : "description_service",
+    "parent"      : "tenancy"
+  },{
+    "name"        : "operation",
+    "description" : "description_operation",
+    "parent"      : "service"
+  },{
+    "name"        : "network",
+    "description" : "description_network",
+    "parent"      : "service"
+  },{
+    "name"        : "database",
+    "description" : "description_database",
+    "parent"      : "service"
+  },{
+    "name"        : "application",
+    "description" : "description_application",
+    "parent"      : "service"
+  }
+]

@@ -1,0 +1,83 @@
+[
+    {
+        "name"        : "management",
+        "description" : "management_description",
+        "class"       : 0,
+        "stage"       : 0,
+        "newbits"     : 10,
+        "firewall"    : "firewall_name",
+        "cluster"     : "cluster_name"
+    },
+    {
+        "name"        : "presentation",
+        "description" : "presentation_description",
+        "class"       : 0,
+        "stage"       : 0,
+        "newbits"     : 10,
+        "firewall"    : "edge",
+        "cluster"     : "cluster_name"
+    },
+    {
+        "name"        : "application",
+        "description" : "application_description",
+        "class"       : 0,
+        "stage"       : 0,
+        "newbits"     : 10,
+        "firewall"    : "domain",
+        "cluster"     : "cluster_name"
+    },
+    {
+        "name"        : "database",
+        "description" : "database_description",
+        "class"       : 0,
+        "stage"       : 0,
+        "newbits"     : 10,
+        "firewall"    : "domain",
+        "cluster"     : "cluster_name"
+    },
+    {
+        "name"        : "frontend",
+        "description" : "frontend_description",
+        "class"       : 0,
+        "stage"       : 0,
+        "newbits"     : 10,
+        "firewall"    : "edge",
+        "cluster"     : "cluster_name"
+    },
+    {
+        "name"        : "backend",
+        "description" : "backend_description",
+        "class"       : 0,
+        "stage"       : 0,
+        "newbits"     : 10,
+        "firewall"    : "domain",
+        "cluster"     : "cluster_name"
+    },
+    {
+        "name"        : "loadbalancer",
+        "description" : "loadbalancer_description",
+        "class"       : 0,
+        "stage"       : 0,
+        "newbits"     : 10,
+        "firewall"    : "edge",
+        "cluster"     : "cluster_name"
+    },
+    {
+        "name"        : "worker",
+        "description" : "worker_description",
+        "class"       : 0,
+        "stage"       : 0,
+        "newbits"     : 10,
+        "firewall"    : "domain",
+        "cluster"     : "cluster_name"
+    },
+    {
+        "name"        : "master",
+        "description" : "master_description",
+        "class"       : 0,
+        "stage"       : 0,
+        "newbits"     : 10,
+        "firewall"    : "domain",
+        "cluster"     : "cluster_name"
+    }
+]

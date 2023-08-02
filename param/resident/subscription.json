@@ -1,0 +1,7 @@
+[
+    {
+        "topic"    : "subscription",
+        "operator" : "operator_email",
+        "channel"  : "channel_name"
+    }
+]

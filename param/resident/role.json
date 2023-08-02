@@ -1,0 +1,7 @@
+[
+    {
+        "name"        : "role",
+        "description" : "description",
+        "privilege"   : "privilege_name"
+    }
+]
