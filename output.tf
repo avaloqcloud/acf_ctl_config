@@ -3,25 +3,36 @@
 
 // readme.md created with https://terraform-docs.io/: terraform-docs markdown --sort=false ./ > ./readme.md
 
-output "id" {
+output "tenancy_id" {
   description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
-  value       = data.oci_identity_tenancy.account
+  value       = data.oci_identity_tenancy.account.id
 }
+
+output "regions" {
+  description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
+  value       = data.oci_identity_regions.tenancy
+}
+
+output "availability_domains" {
+  description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
+  value       = data.oci_availability_domains
+}
+
+output "objectstorage_namespace" {
+  description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
+  value       = data.oci_objectstorage_namespace
+}
+
 /*
 output "parent_id" {
   description = "The OCID of the parent compartment for the service."
-  value       = oci_identity_compartment.account.compartment_id
+  value       = oci_identity_compartment.account
 }
-
 output "compartment_ids" {
   description = "A list of OCID for the child compartments, representing the different administration domain."
   value       = { for compartment in oci_identity_compartment.domains : compartment.name => compartment.id }
 }
 
-output "namespace_ids" {
-  description = "A list of tag_namespaces created for the service compartment in the tenancy. This allows to define separate tags for every service. Namespace names have to be unique."
-  value       = { for namespace in oci_identity_tag_namespace.resident : namespace.name => namespace.id }
-}
 
 output "tag_ids" {
   description = "A list of tags, created in the tag namespaces."
@@ -41,6 +52,11 @@ output "notifications" {
 output "policy_ids" {
   description = "A list of policy controls, defined for the different admistrator roles. Policy names correspond with the groups defined on tenancy level."
   value       = { for policy in oci_identity_policy.domains : policy.name => policy.id }
+}
+
+output "namespace_ids" {
+  description = "A list of tag_namespaces created for the service compartment in the tenancy. This allows to define separate tags for every service. Namespace names have to be unique."
+  value       = { for namespace in oci_identity_tag_namespace.account : namespace.name => namespace.id }
 }
 
 output "freeform_tags" {
