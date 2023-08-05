@@ -12,7 +12,7 @@ output "regions" {
   description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
   value       = data.oci_identity_regions.tenancy
 }
-
+/*
 output "availability_domains" {
   description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
   value       = data.oci_availability_domains.tenancy
@@ -23,7 +23,6 @@ output "objectstorage_namespace" {
   value       = data.oci_objectstorage_namespace.tenancy
 }
 
-/*
 output "parent_id" {
   description = "The OCID of the parent compartment for the service."
   value       = oci_identity_compartment.account

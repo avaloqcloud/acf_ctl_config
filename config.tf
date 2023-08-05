@@ -13,7 +13,7 @@ terraform {
 
 data "oci_identity_tenancy"              "account" {tenancy_id     = var.account.tenancy_id}
 data "oci_identity_regions"              "tenancy" {}
-// data "oci_identity_availability_domains" "tenancy" {compartment_id = var.account.tenancy_id}
+data "oci_identity_availability_domains" "tenancy" {compartment_id = var.account.tenancy_id}
 data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.account.tenancy_id}
 
 /*
