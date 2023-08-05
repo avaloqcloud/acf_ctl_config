@@ -17,28 +17,13 @@ data "oci_identity_availability_domains" "tenancy" {compartment_id = var.account
 data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.account.tenancy_id}
 
 locals {
-  parameter = concat(
+  parameter = concat([
     fileset("${path.module}/param/iam", "*.json"),
     fileset("${path.module}/param/net", "*.json"),
     fileset("${path.module}/param/crypto", "*.json"),
     fileset("${path.module}/param/data", "*.json")
-  )
+  ])
 }
-
-/*
-locals {
-  defined_tags = {
-    for tag in var.resident.tags : "${tag.namespace}.${tag.name}" => tag.default
-    if tag.stage <= var.resident.stage
-  }
-  freeform_tags = {
-    "framework" = "ocloud"
-    "owner"     = var.resident.owner
-    "lifecycle" = var.resident.stage
-    "class"     = var.tenancy.class
-  }
-}
-*/
 
 resource "null_resource" "previous" {}
 resource "time_sleep" "wait" {
