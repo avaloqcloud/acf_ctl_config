@@ -20,7 +20,7 @@ In the configuration module these parameter are captured in JSON format and stor
 ...
 
 ## Contributing
-This project is a community project the code is open source.  Please submit your contributions by forking this repository and submitting a pull request!  Avaloq appreciates any contributions that are made by the open source community.
+This project is a community project the code is open source.  Please submit your contributions by forking this repository and submitting a pull request!  Avaloq appreciates any contributions that are made by the open source community. Extending the functionlaity it is advisable to utilize the [Avaloq Development Module (ADM)](https://github.com/avaloqcloud/acf_ctl_dev).
 
 ## License
 Copyright (c) 2023 Avaloq and/or its affiliates.
