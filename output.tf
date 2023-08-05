@@ -3,9 +3,9 @@
 
 // readme.md created with https://terraform-docs.io/: terraform-docs markdown --sort=false ./ > ./readme.md
 
-output "files" {
+output "users" {
   value       = {
-    for user in local.users : user.user_name => user.first_name
+    for user in local.users : user.user_name => format("%s %s", user.first_name, user.last_name)
   }
 }
 
