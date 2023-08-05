@@ -15,13 +15,13 @@ variable "account" {
 
 variable "schema" {
   type = object({
-    class        = string,
+    class        = number,
     parent       = string,
     location     = string,
     organization = string,
     project      = string,
     owner        = string,
-    stage        = string,
+    stage        = number,
     source       = string,
     scope        = list(any)
   })
