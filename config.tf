@@ -23,8 +23,7 @@ locals {
     fileset("${path.module}/param/crypto", "*.json"),
     fileset("${path.module}/param/data", "*.json")
   ])
-  user_data = jsondecode(file("${path.module}/param/iam/users.json"))
-  all_users = {for user in local.user_data : user.user_name => user.first_name}
+  users = jsondecode(file("${path.module}/param/iam/user.json"))
 }
 
 resource "null_resource" "previous" {}
