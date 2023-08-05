@@ -15,7 +15,7 @@ output "regions" {
 
 output "availability_domains" {
   description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
-  value       = data.oci_identity_availability_domains.tenancy
+  value       = {for ad in data.oci_identity_availability_domains.tenancy.availability_domains : ad.name  => ad.id}
 }
 /*
 output "objectstorage_namespace" {
