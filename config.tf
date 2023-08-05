@@ -17,7 +17,7 @@ data "oci_identity_availability_domains" "tenancy" {compartment_id = var.account
 data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.account.tenancy_id}
 
 locals {
-  parameter = concat([
+  parameter = flatten([
     fileset("${path.module}/param/iam", "*.json"),
     fileset("${path.module}/param/net", "*.json"),
     fileset("${path.module}/param/crypto", "*.json"),
