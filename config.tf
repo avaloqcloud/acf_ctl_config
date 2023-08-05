@@ -17,7 +17,16 @@ data "oci_identity_availability_domains" "tenancy" {compartment_id = var.account
 data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.account.tenancy_id}
 
 locals {
-  parameter = fileset("${path.module}/param/", "*")
+  iam = fileset("${path.module}/param/iam", "*.json")
+  net = fileset("${path.module}/param/net", "*.json")
+  crypto = fileset("${path.module}/param/crypto", "*.json")
+  data = fileset("${path.module}/param/data", "*.json")
+  parameter = [
+    fileset("${path.module}/param/iam", "*.json"),
+    fileset("${path.module}/param/net", "*.json"),
+    fileset("${path.module}/param/crypto", "*.json"),
+    fileset("${path.module}/param/data", "*.json")
+  ]
 }
 
 /*
