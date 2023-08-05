@@ -3,38 +3,27 @@
 
 // readme.md created with https://terraform-docs.io/: terraform-docs markdown --sort=false ./ > ./readme.md
 
-variable "input" {
+variable "account" {
   type = object({
-    parent_id     = string,
-    enable_delete = bool
+    tenancy_id     = string,
+    compartment_id = string,
+    home           = string,
+    user_id        = string
   })
   description = "Settings for the service resident"
 }
 
-variable "tenancy" {
+variable "schema" {
   type = object({
-    class   = number,
-    buckets = string,
-    id      = string,
-    region  = map(string)
-  })
-  description = "Tenancy Configuration"
-}
-
-variable "resident" {
-  type = object({
-    owner          = string,
-    name           = string,
-    label          = string,
-    stage          = number,
-    region         = map(string)
-    compartments   = map(number),
-    repository     = string,
-    groups         = map(string),
-    policies       = map(any),
-    notifications  = map(any),
-    tag_namespaces = map(number),
-    tags           = any
+    class        = string,
+    parent       = string,
+    location     = string,
+    organization = string,
+    project      = string,
+    owner        = string,
+    stage        = string,
+    source       = string,
+    scope        = map(any)
   })
   description = "Service Configuration"
 }
