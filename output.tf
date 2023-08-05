@@ -3,6 +3,23 @@
 
 // readme.md created with https://terraform-docs.io/: terraform-docs markdown --sort=false ./ > ./readme.md
 
+output "classification" {
+  value       = var.schema.class
+}
+
+output "stage" {
+  value       = var.schema.stage
+}
+
+output "osn" {
+  value       = var.schema.osn
+}
+
+output "files" {
+  value       = example_thing.files
+}
+
+/*
 output "tenancy_id" {
   description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
   value       = data.oci_identity_tenancy.account.id
@@ -22,7 +39,7 @@ output "availability_domains" {
   description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
   value       = {for ad in data.oci_identity_availability_domains.tenancy.availability_domains : ad.name  => ad.id}
 }
-/*
+
 output "objectstorage_namespace" {
   description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
   value       = data.oci_objectstorage_namespace.tenancy
