@@ -1,8 +1,8 @@
-{
-    "acid_usr.xxx" : {
-        "id"           : "acid_usr.xxx",
-        "first"        : "first name",
-        "last"         : "last name",
-        "email"        : "noreply@avaloq.com"
+[
+    {
+        "user_name"  : "user_1",
+        "role"       : "admin",
+        "first_name" : "first",
+        "last_name"  : "last"
     }
-}
+]
