@@ -23,7 +23,7 @@ variable "schema" {
     owner        = string,
     stage        = string,
     source       = string,
-    scope        = map(any)
+    scope        = list(any)
   })
   description = "Service Configuration"
 }
