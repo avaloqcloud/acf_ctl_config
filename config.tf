@@ -11,6 +11,11 @@ terraform {
     }
 }
 
+provider "oci" {
+    alias  = "home"
+    region = var.account.home
+}
+
 data "oci_identity_tenancy"              "account" {tenancy_id     = var.account.tenancy_id}
 data "oci_identity_regions"              "tenancy" {}
 data "oci_identity_availability_domains" "tenancy" {compartment_id = var.account.tenancy_id}
