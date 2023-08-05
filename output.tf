@@ -3,20 +3,8 @@
 
 // readme.md created with https://terraform-docs.io/: terraform-docs markdown --sort=false ./ > ./readme.md
 
-output "classification" {
-  value       = var.schema.class
-}
-
-output "stage" {
-  value       = var.schema.stage
-}
-
-output "services" {
-  value       = var.schema.services
-}
-
 output "files" {
-  value       = fileset(path.module, "iam/*.json")
+  value       = fileset(path.module, "param/iam/*")
 }
 
 /*
