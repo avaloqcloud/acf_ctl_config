@@ -11,8 +11,8 @@ output "stage" {
   value       = var.schema.stage
 }
 
-output "osn" {
-  value       = var.schema.osn
+output "services" {
+  value       = var.schema.services
 }
 
 output "files" {
