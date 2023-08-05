@@ -5,12 +5,12 @@
 
 output "id" {
   description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
-  value       = oci_identity_compartment.resident.id
+  value       = oci_identity_compartment.account.tenancy_id
 }
 
 output "parent_id" {
   description = "The OCID of the parent compartment for the service."
-  value       = oci_identity_compartment.resident.compartment_id
+  value       = oci_identity_compartment.account.compartment_id
 }
 
 output "compartment_ids" {
@@ -18,6 +18,7 @@ output "compartment_ids" {
   value       = { for compartment in oci_identity_compartment.domains : compartment.name => compartment.id }
 }
 
+/*
 output "namespace_ids" {
   description = "A list of tag_namespaces created for the service compartment in the tenancy. This allows to define separate tags for every service. Namespace names have to be unique."
   value       = { for namespace in oci_identity_tag_namespace.resident : namespace.name => namespace.id }
@@ -52,3 +53,4 @@ output "defined_tags" {
   description = "A list of actionable tags, utilized for operation, budget- and compliance control."
   value = local.defined_tags
 }
+*/
