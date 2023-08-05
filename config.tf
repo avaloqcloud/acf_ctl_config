@@ -24,7 +24,7 @@ locals {
     fileset("${path.module}/param/data", "*.json")
   ])
   users = jsondecode(file("${path.module}/param/iam/user.json"))
-  names = [for parameter in local.parameters : jsondecode(file("${parameter}"))]
+  iam = merge([for parameter in local.parameters : jsondecode(file("${path.module}/param/iam/${parameter}"))]...)
 }
 
 resource "null_resource" "previous" {}
