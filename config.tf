@@ -17,13 +17,14 @@ data "oci_identity_availability_domains" "tenancy" {compartment_id = var.account
 data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.account.tenancy_id}
 
 locals {
-  parameter = flatten([
+  parameters = flatten([
     fileset("${path.module}/param/iam", "*.json"),
     fileset("${path.module}/param/net", "*.json"),
     fileset("${path.module}/param/crypto", "*.json"),
     fileset("${path.module}/param/data", "*.json")
   ])
   users = jsondecode(file("${path.module}/param/iam/user.json"))
+  names = [for parameter in local.parameters : jsondecode(file("${parameter}"))]
 }
 
 resource "null_resource" "previous" {}
