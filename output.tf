@@ -4,7 +4,7 @@
 // readme.md created with https://terraform-docs.io/: terraform-docs markdown --sort=false ./ > ./readme.md
 
 output "files" {
-  value       = local.parameter
+  value       = local.parameter[*]
 }
 
 /*
