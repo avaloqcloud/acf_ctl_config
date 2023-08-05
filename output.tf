@@ -10,7 +10,12 @@ output "tenancy_id" {
 
 output "regions" {
   description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
-  value       = local.regions_map
+  value       = {for region in data.oci_identity_regions.tenancy.regions : region.key  => region.name}
+}
+
+output "home_region" {
+  description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
+  value       = data.oci_identity_tenancy.account.home_region_key
 }
 
 output "availability_domains" {
