@@ -21,10 +21,10 @@ locals {
     regions_map         = {for region in data.oci_identity_regions.tenancy.regions : region.key => region.name}
     regions_map_reverse = {for region in data.oci_identity_regions.tenancy.regions : region.name => region.key}
     # Deployment region
-    region_key          = local.regions_map_reverse[var.solution.region]
-    region_name         = var.solution.region
+    region_key          = local.regions_map_reverse[var.account.region]
+    region_name         = var.account.region
     # Home region key obtained from the tenancy data source
-    home_region_key     = data.oci_identity_tenancy.resident.home_region_key
+    home_region_key     = data.oci_identity_tenancy.account.home_region_key
     # Region key obtained from the region name
     home_region_name    = local.regions_map[local.home_region_key]
     home_region_ads     = sort(data.template_file.ad_names.*.rendered)
