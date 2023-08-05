@@ -16,7 +16,7 @@ output "osn" {
 }
 
 output "files" {
-  value       = example_thing.files
+  value       = fileset(path.module, "iam/*.json")
 }
 
 /*
