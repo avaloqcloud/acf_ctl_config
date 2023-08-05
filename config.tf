@@ -11,9 +11,9 @@ terraform {
     }
 }
 
-// metadata for the tenancy
-data "oci_identity_tenancy" "resident" { tenancy_id = var.tenancy.id }
+data "oci_identity_tenancy" "account" { tenancy_id = var.account.tenancy_id }
 
+/*
 locals {
   defined_tags = {
     for tag in var.resident.tags : "${tag.namespace}.${tag.name}" => tag.default
@@ -26,11 +26,9 @@ locals {
     "class"     = var.tenancy.class
   }
 }
+*/
 
-// --- define the wait state 
 resource "null_resource" "previous" {}
-
-// this resource will destroy (potentially immediately) after null_resource.next
 resource "time_sleep" "wait" {
   depends_on      = [null_resource.previous]
   create_duration = "2m"
