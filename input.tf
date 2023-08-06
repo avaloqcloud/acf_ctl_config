@@ -7,6 +7,7 @@ variable "account" {
   type = object({
     class          = number,
     compartment_id = string,
+    compliance     = list(any),
     home           = string,
     location       = string,
     name           = string,
@@ -16,7 +17,7 @@ variable "account" {
     services       = string,
     stage          = number,
     source         = string,
-    scope          = list(any)
+    scope          = list(any),
     tenancy_id     = string,
     user_id        = string
   })
