@@ -1,23 +1,18 @@
 [
   {
     "name"        : "service",
-    "description" : "description_service",
-    "parent"      : "tenancy"
+    "description" : "description_service"
   },{
     "name"        : "operation",
-    "description" : "description_operation",
-    "parent"      : "service"
+    "description" : "description_operation"
   },{
     "name"        : "network",
-    "description" : "description_network",
-    "parent"      : "service"
+    "description" : "description_network"
   },{
     "name"        : "database",
-    "description" : "description_database",
-    "parent"      : "service"
+    "description" : "description_database"
   },{
     "name"        : "application",
-    "description" : "description_application",
-    "parent"      : "service"
+    "description" : "description_application"
   }
 ]
