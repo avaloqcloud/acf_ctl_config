@@ -18,12 +18,16 @@ output "groups" {
     }}
 }
 
-output "users" {
+output "oci_identity_user" {
     value     = {for user in local.users : user.email => {
-        name  = user.email
-        class = var.account.class
-        stage = var.account.stage
-    }}
+        compartment_id = var.tenancy_ocid
+        name           = user.email
+        description    = format("%s %s", user.first_name, user.last_name)
+        defined_tags   = {"budget.cost_center"= user.cost_center}
+        email          = user.email
+        freeform_tags  = {"department" = user.department}
+        class          = var.account.class
+    } if user.stage <= var.account.stage }
 }
 
 output "notifications" {

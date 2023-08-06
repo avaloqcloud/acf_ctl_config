@@ -1,20 +1,29 @@
 [
     {
-        "email"      : "user_admin1@email.com",
-        "first_name" : "first",
-        "last_name"  : "last",
-        "role"       : "admin"
+        "email"       : "user_admin1@email.com",
+        "cost_center" : "42",
+        "department"  : "CI",
+        "first_name"  : "first",
+        "last_name"   : "last",
+        "role"        : "admin",
+        "stage"       : 0
     },
     {
         "email"      : "user_admin2@email.com",
+        "cost_center" : "42",
+        "department"  : "CI",
         "first_name" : "first",
         "last_name"  : "last",
-        "role"       : "admin"
+        "role"       : "admin",
+        "stage"       : 0
     },
     {
-        "email"      : "user_root1@email.com",
-        "first_name" : "first",
-        "last_name"  : "last",
-        "role"       : "root"
+        "email"       : "user_root1@email.com",
+        "cost_center" : "42",
+        "department"  : "CI",
+        "first_name"  : "first",
+        "last_name"   : "last",
+        "role"        : "root",
+        "stage"       : 0
     }
 ]
