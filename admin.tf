@@ -42,12 +42,13 @@ output "oci_ons_notification_topic" {
 }
 
 output "oci_identity_tag_namespace" {
-     value = {
-        for namespace in local.controls : format("%s_%s", var.account.name, namespace.name) => namespace.stage
-    }
+     value = {for namespace in local.controls : namespace.name => {
+        compartment_id = var.account.parent_id
+        description    = "${namespace.name} control for ${var.account.parent_id}"
+        name           = format("%s_%s", var.account.name, namespace.name)
+    } if namespace.stage <= var.account.stage }
 }
-/*
-output "tags" {
+output "oci_identity_tag" {
      value = {for tag in local.tags : tag.name => {
         name          = tag.name
         namespace     = local.tag_map[tag.name]
@@ -57,7 +58,7 @@ output "tags" {
         cost_tracking = tag.cost_tracking
     }}
 }
-
+/*
 output "permissions" {
      value = {for permission in local.permissions : permission.name => {
         name        = "${local.service_name}_${operator.name}"

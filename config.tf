@@ -49,6 +49,14 @@ locals {
   # file service parameter
   backups       = jsondecode(file("${path.module}/param/file/backup.json"))
   buckets       = jsondecode(file("${path.module}/param/file/bucket.json"))
+  
+  # Merge tags with with the respective namespace information
+  tag_map = zipmap(
+    flatten([for tag in local.controls[*].tags : tag]),
+    flatten([for control in local.controls : [for tag in control.tags : "${var.account.name}_${control.name}"]])
+  ) 
+  tag_namespaces = {for namespace in local.controls : "${var.account.name}_${namespace.name}" => namespace.stage} 
+
 }
 
 resource "null_resource" "previous" {}
