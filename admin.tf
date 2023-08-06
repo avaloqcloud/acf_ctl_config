@@ -17,7 +17,7 @@ output "groups" {
         stage = var.account.stage
     }}
 }
-/*
+
 output "users" {
     value     = {for user in local.users : user => {
         name  = format("%s %s", user.first_name, user.last_name)
@@ -25,7 +25,7 @@ output "users" {
         stage = var.account.stage
     }}
 }
-
+/*
 output "notifications" {
     value = {for channel in local.channels : channel => {
         name = format("%s_%s", var.account.name, channel)
