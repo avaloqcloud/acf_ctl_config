@@ -20,7 +20,7 @@ output "groups" {
 
 output "users" {
     value     = {for user in local.users : user => {
-        name  = format("%s %s", user.first_name, user.last_name)
+        name  = format("%s_%s", user.first_name, user.last_name)
         class = var.account.class
         stage = var.account.stage
     }}
