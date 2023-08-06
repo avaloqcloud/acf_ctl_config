@@ -2,14 +2,14 @@
 // Licensed under the Apache 2.0 license shown at https://www.apache.org/licenses/LICENSE-2.0.
 
 output "tenancy" {
-    compartments = {for domain in var.resident.domains : domain.name => {
+    compartments = {for domain in local.domains : domain.name => {
         name     = "${local.service_name}_${domain.name}_compartment"
         parent   = domain.contract
         class    = domain.class
         contract = domain.contract
     }}
 
-    groups       = {for operator in flatten(var.resident.domains[*].operators) : operator => {
+    groups       = {for operator in flatten(local.domains[*].operators) : operator => {
         operator = "${local.service_name}_${operator}"
     }}
 
@@ -17,7 +17,7 @@ output "tenancy" {
         topic     = "${local.service_name}_${channel.name}"
         protocol  = channel.type
         endpoint  = channel.address
-    } if contains(distinct(flatten("${var.resident.domains[*].channels}")), channel.name)}
+    } if contains(distinct(flatten("${local.domains[*].channels}")), channel.name)}
 
     policies     = {for operator in local.operators : operator.name => {
         name        = "${local.service_name}_${operator.name}"

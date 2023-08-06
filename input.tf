@@ -10,7 +10,7 @@ variable "account" {
     home           = string,
     user_id        = string
   })
-  description = "Settings for the service resident"
+  description = "Prepopulated parameter from the active oci account"
 }
 
 variable "schema" {
