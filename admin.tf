@@ -59,12 +59,12 @@ output "oci_identity_tag" {
         is_cost_tracking = tag.cost_tracking
     } if local.tag_namespaces["${local.tag_map[tag.name]}"] <= var.account.stage }
 }
-/*
-output "permissions" {
+
+output "oci_identity_policy" {
      value = {for permission in local.permissions : permission.name => {
-        name        = "${local.service_name}_${operator.name}"
-        compartment = local.group_map[operator.name]
-        rules       = operator.rules
-    }if contains(keys(local.group_map), operator.name) }
+        compartment_id = var.account.parent_id
+        description    = permission.name
+        name           = format("%s_%s_policy", var.account.name, permission.role)
+        statements     = permission.permissions
+    } if contains(distinct(local.users[*].role), permission.role) }
 }
-*/
