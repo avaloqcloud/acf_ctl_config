@@ -17,24 +17,37 @@ data "oci_identity_availability_domains" "tenancy" {compartment_id = var.account
 data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.account.tenancy_id}
 
 locals {
-  # identity and access related parameter
-  users         = jsondecode(file("${path.module}/param/iam/user.json"))
-  roles         = jsondecode(file("${path.module}/param/iam/role.json"))
-  privileges    = jsondecode(file("${path.module}/param/iam/privilege.json"))
-  subscriptions = jsondecode(file("${path.module}/param/iam/subscription.json"))
-  notifications = jsondecode(file("${path.module}/param/iam/notification.json"))
-  domains       = jsondecode(file("${path.module}/param/iam/domain.json"))
-  alerts        = jsondecode(file("${path.module}/param/iam/alert.json"))
-  budgets       = jsondecode(file("${path.module}/param/iam/budget.json"))
-  channels      = jsondecode(file("${path.module}/param/iam/channel.json"))
-  # network parameter
-  cluster       = jsondecode(file("${path.module}/param/iam/cluster.json"))
-  firewall      = jsondecode(file("${path.module}/param/iam/firewall.json"))
-  gateways      = jsondecode(file("${path.module}/param/iam/gateway.json"))
-  ports         = jsondecode(file("${path.module}/param/iam/port.json"))
-  segments      = jsondecode(file("${path.module}/param/iam/segment.json"))
-  subnets       = jsondecode(file("${path.module}/param/iam/subnet.json"))
-  zones         = jsondecode(file("${path.module}/param/iam/zone.json"))
+  # administrator service parameter
+  users         = jsondecode(file("${path.module}/param/admin/user.json"))
+  roles         = jsondecode(file("${path.module}/param/admin/role.json"))
+  privileges    = jsondecode(file("${path.module}/param/admin/privilege.json"))
+  subscriptions = jsondecode(file("${path.module}/param/admin/subscription.json"))
+  notifications = jsondecode(file("${path.module}/param/admin/notification.json"))
+  domains       = jsondecode(file("${path.module}/param/admin/domain.json"))
+  alerts        = jsondecode(file("${path.module}/param/admin/alert.json"))
+  budgets       = jsondecode(file("${path.module}/param/admin/budget.json"))
+  channels      = jsondecode(file("${path.module}/param/admin/channel.json"))
+  # network service parameter
+  clusters      = jsondecode(file("${path.module}/param/net/cluster.json"))
+  firewals      = jsondecode(file("${path.module}/param/net/firewall.json"))
+  gateways      = jsondecode(file("${path.module}/param/net/gateway.json"))
+  ports         = jsondecode(file("${path.module}/param/net/port.json"))
+  segments      = jsondecode(file("${path.module}/param/net/segment.json"))
+  subnets       = jsondecode(file("${path.module}/param/net/subnet.json"))
+  zones         = jsondecode(file("${path.module}/param/net/zone.json"))
+  # crypto service parameter
+  secrets       = jsondecode(file("${path.module}/param/crypto/secret.json"))
+  signatures    = jsondecode(file("${path.module}/param/crypto/signature.json"))
+  vaults        = jsondecode(file("${path.module}/param/crypto/vault.json"))
+  wallets       = jsondecode(file("${path.module}/param/crypto/wallet.json"))
+  # database service parameter
+  databases     = jsondecode(file("${path.module}/param/db/database.json"))
+  sizes         = jsondecode(file("${path.module}/param/db/size.json"))
+  # compute service parameter
+  filesystems   = jsondecode(file("${path.module}/param/compute/filesystem.json"))
+  # file service parameter
+  buckets       = jsondecode(file("${path.module}/param/file/bucket.json"))
+  backups       = jsondecode(file("${path.module}/param/file/backup.json"))
 }
 
 resource "null_resource" "previous" {}
