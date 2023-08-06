@@ -1,13 +1,15 @@
 // Copyright (c) 2023 Avaloq and/or its affiliates.
 // Licensed under the Apache 2.0 license shown at https://www.apache.org/licenses/LICENSE-2.0.
 
-output "compartments" {
+output "oci_identity_compartment" {
     value         = {for domain in local.domains : domain.name => {
         name      = format("%s_%s_compartment", var.account.name, domain.name)
-        parent_id = var.account.parent_id
-        class     = var.account.class
-        stage     = var.account.stage
-    }}
+        compartment_id = var.account.parent_id
+        description    = var.compartment_description
+        class          = var.account.class
+        defined_tags   = {"budget.cost_center"= domain.cost_center}
+        freeform_tags  = {"department" = domain.department}
+    } if domain.stage <= var.account.stage }
 }
 
 output "groups" {
@@ -20,7 +22,7 @@ output "groups" {
 
 output "oci_identity_user" {
     value     = {for user in local.users : user.email => {
-        compartment_id = var.tenancy_ocid
+        compartment_id = var.account.parent_id
         name           = user.email
         description    = format("%s %s", user.first_name, user.last_name)
         defined_tags   = {"budget.cost_center"= user.cost_center}

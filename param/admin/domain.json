@@ -1,18 +1,23 @@
 [
   {
-    "name"        : "service",
-    "description" : "description_service"
-  },{
-    "name"        : "operation",
-    "description" : "description_operation"
+    "name"        : "management",
+    "description" : "Restricted domain for management and observability services",
+    "cost_center" : "42",
+    "department"  : "CI" 
   },{
     "name"        : "network",
-    "description" : "description_network"
+    "description" : "Management domain shared network services",
+    "cost_center" : "42",
+    "department"  : "CI"
   },{
     "name"        : "database",
-    "description" : "description_database"
+    "description" : "Management domain for shared database services",
+    "cost_center" : "42",
+    "department"  : "CI"
   },{
     "name"        : "application",
-    "description" : "description_application"
+    "description" : "Dedicated domain for application workloads",
+    "cost_center" : "42",
+    "department"  : "CI"
   }
 ]
