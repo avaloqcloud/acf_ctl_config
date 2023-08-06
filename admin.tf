@@ -17,8 +17,7 @@ output "oci_identity_group" {
         name           = format("%s_%s", var.account.name, group)
         compartment_id = var.account.parent_id
         description    = "${group} role defined for ${var.account.parent_id}"
-        class          = var.account.class
-    } if group.stage  <= var.account.stage }
+    }}
 }
 
 output "oci_identity_user" {
