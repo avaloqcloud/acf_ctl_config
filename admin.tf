@@ -32,11 +32,12 @@ output "oci_identity_user" {
     } if user.stage <= var.account.stage }
 }
 
-output "notifications" {
+output "oci_ons_notification_topic" {
     value = {for channel in local.channels : channel.name => {
-        name = format("%s_%s", var.account.name, channel.name)
-        protocol  = channel.service
-        endpoint  = channel.address
+        compartment_id = var.account.parent_id
+        name           = format("%s_%s", var.account.name, channel.name)
+        protocol       = channel.service
+        endpoint       = channel.address
     } if contains(distinct(local.subscriptions[*].channel), channel.name)}
 }
 
