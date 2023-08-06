@@ -3,7 +3,7 @@
 
 output "compartments" {
     value         = {for domain in local.domains : domain.name => {
-        name      = format("%s_%s_compartment", var.account.name, domain.name)
+        name      = format("%s_%s_compartment", "${var.account.name}", "${domain.name}")
         parent_id = var.account.parent_id
         class     = var.account.class
         stage     = var.account.stage
@@ -12,7 +12,7 @@ output "compartments" {
 
 output "groups" {
     value     = {for group in distinct(local.users[*].role) : group => {
-        name  = format("%s_%s", var.account.name, group)
+        name  = format("%s_%s", "${var.account.name}", "${group}")
         class = var.account.class
         stage = var.account.stage
     }}
@@ -20,7 +20,7 @@ output "groups" {
 
 output "users" {
     value     = {for user in local.users : user => {
-        name  = format("%s %s", user.first_name, user.last_name)
+        name  = format("%s %s", "${user.first_name}", "${user.last_name}")
         class = var.account.class
         stage = var.account.stage
     }}
@@ -28,7 +28,7 @@ output "users" {
 
 output "notifications" {
     value = {for channel in local.channels : channel => {
-        name = format("%s_%s", var.account.name, channel)
+        name = format("%s_%s", "${var.account.name}", "${channel}")
         protocol  = channel.type
         endpoint  = channel.address
     } if contains(distinct(local.subscriptions[*].channels), channel.name)}
