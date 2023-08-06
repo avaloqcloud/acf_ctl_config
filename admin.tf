@@ -19,7 +19,7 @@ output "groups" {
 }
 
 output "users" {
-    value     = {for user in local.users : user => {
+    value     = {for user in local.users[*] : user => {
         name  = user.email
         class = var.account.class
         stage = var.account.stage
