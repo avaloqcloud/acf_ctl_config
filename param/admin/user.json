@@ -3,18 +3,21 @@
         "name"       : "user_admin1",
         "role"       : "admin",
         "first_name" : "first",
-        "last_name"  : "last"
+        "last_name"  : "last",
+        "email"      : "user_admin1@email.com"
     },
     {
         "name"       : "user_admin2",
         "role"       : "admin",
         "first_name" : "first",
-        "last_name"  : "last"
+        "last_name"  : "last",
+        "email"      : "user_admin2@email.com"
     },
     {
-        "name"       : "user_1",
+        "name"       : "user_root1",
         "role"       : "root",
         "first_name" : "first",
-        "last_name"  : "last"
+        "last_name"  : "last",
+        "email"      : "user_root1@email.com"
     }
 ]
