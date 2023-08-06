@@ -9,6 +9,12 @@ output "compartments" {
         stage    = var.account.stage
     }}
 }
+
+output "users" {
+  value       = {
+    for user in local.users : user.name => format("%s %s", user.first_name, user.last_name)
+  }
+}
 /*
 output "groups" {
      value = {for operator in flatten(local.domains[*].operators) : operator => {
