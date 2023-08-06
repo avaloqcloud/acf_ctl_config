@@ -2,25 +2,25 @@
   {
     "name"        : "management",
     "description" : "Restricted domain for management and observability services",
-    "srage"       : 0,
+    "stage"       : 0,
     "cost_center" : "42",
     "department"  : "CI" 
   },{
     "name"        : "network",
     "description" : "Management domain shared network services",
-    "srage"       : 0,
+    "stage"       : 0,
     "cost_center" : "42",
     "department"  : "CI"
   },{
     "name"        : "database",
     "description" : "Management domain for shared database services",
-    "srage"       : 0,
+    "stage"       : 0,
     "cost_center" : "42",
     "department"  : "CI"
   },{
     "name"        : "application",
     "description" : "Dedicated domain for application workloads",
-    "srage"       : 0,
+    "stage"       : 0,
     "cost_center" : "42",
     "department"  : "CI"
   }
