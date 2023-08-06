@@ -9,6 +9,10 @@ output "users" {
   }
 }
 
+output "names" {
+  value       = local.names[*].name
+}
+
 /*
 output "tenancy_id" {
   description = "The Oracle Cloud Identifier (OCID) for the service compartment. It allows to retrieve the compartment details using data blocks."
