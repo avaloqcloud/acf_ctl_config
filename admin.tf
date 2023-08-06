@@ -35,7 +35,7 @@ output "oci_identity_user" {
 output "oci_ons_notification_topic" {
     value = {for channel in local.channels : channel.name => {
         compartment_id = var.account.parent_id
-        name           = format("%s_%s", var.account.name, channel.name)
+        name           = format("%s_%s_%s", var.account.name, channel.service, channel.name)
         protocol       = channel.service
         endpoint       = channel.address
     } if contains(distinct(local.subscriptions[*].channel), channel.name)}
@@ -48,15 +48,16 @@ output "oci_identity_tag_namespace" {
         name           = format("%s_%s", var.account.name, namespace.name)
     } if namespace.stage <= var.account.stage }
 }
+
 output "oci_identity_tag" {
      value = {for tag in local.tags : tag.name => {
-        name          = tag.name
-        namespace     = local.tag_map[tag.name]
-        stage         = local.tag_namespaces["${local.tag_map[tag.name]}"]
-        values        = tag.values
-        default       = length(flatten([tag.values])) > 1 ? element(tag.values,0) : tostring(tag.values)
-        cost_tracking = tag.cost_tracking
-    }}
+        name             = tag.name
+        description      = "${tag.name} control"
+        tag_namespace_id = local.tag_map[tag.name]
+        values           = tag.values
+        default          = length(flatten([tag.values])) > 1 ? element(tag.values,0) : tostring(tag.values)
+        is_cost_tracking = tag.cost_tracking
+    } if local.tag_namespaces["${local.tag_map[tag.name]}"] <= var.account.stage }
 }
 /*
 output "permissions" {
