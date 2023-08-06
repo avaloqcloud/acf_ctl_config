@@ -5,7 +5,7 @@
         "department"  : "CI",
         "first_name"  : "first",
         "last_name"   : "last",
-        "role"        : "admin",
+        "role"        : "SecurityAdmins",
         "stage"       : 0
     },
     {
@@ -14,7 +14,7 @@
         "department"  : "CI",
         "first_name" : "first",
         "last_name"  : "last",
-        "role"       : "admin",
+        "role"       : "Auditors",
         "stage"       : 0
     },
     {
@@ -23,7 +23,7 @@
         "department"  : "CI",
         "first_name"  : "first",
         "last_name"   : "last",
-        "role"        : "root",
+        "role"        : "HelpDesk",
         "stage"       : 0
     }
 ]
