@@ -21,7 +21,7 @@ locals {
   alerts        = jsondecode(file("${path.module}/param/admin/alert.json"))
   budgets       = jsondecode(file("${path.module}/param/admin/budget.json"))
   channels      = jsondecode(file("${path.module}/param/admin/channel.json"))
-  controls       = jsondecode(file("${path.module}/param/admin/control.json"))
+  controls      = jsondecode(file("${path.module}/param/admin/control.json"))
   domains       = jsondecode(file("${path.module}/param/admin/domain.json"))
   notifications = jsondecode(file("${path.module}/param/admin/notification.json"))
   permissions   = jsondecode(file("${path.module}/param/admin/permission.json"))
