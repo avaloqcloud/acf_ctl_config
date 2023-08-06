@@ -36,7 +36,7 @@ output "notifications" {
 
 output "tag_namespaces" {
      value = {
-        for namespace in local.controls : format("%s_%s", var.account.name, namespace) => namespace.stage
+        for namespace in local.controls : format("%s_%s", var.account.name, namespace.name) => namespace.stage
     }
 }
 /*
