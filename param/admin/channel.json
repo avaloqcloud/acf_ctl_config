@@ -4,7 +4,7 @@
         "description"  : "description",
         "class"        : 0,
         "stage"        : 0,
-        "type"         : "email",
+        "service"      : "email",
         "address"      : "mail.server.com"
     }
 ]

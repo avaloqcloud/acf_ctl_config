@@ -29,7 +29,7 @@ output "users" {
 output "notifications" {
     value = {for channel in local.channels : channel.name => {
         name = format("%s_%s", var.account.name, channel.name)
-        protocol  = channel.type
+        protocol  = channel.service
         endpoint  = channel.address
     } if contains(distinct(local.subscriptions[*].channel), channel.name)}
 }
