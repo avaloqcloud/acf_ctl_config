@@ -1,23 +1,20 @@
 [
     {
-        "name"       : "user_admin1",
-        "role"       : "admin",
+        "email"      : "user_admin1@email.com",
         "first_name" : "first",
         "last_name"  : "last",
-        "email"      : "user_admin1@email.com"
+        "role"       : "admin"
     },
     {
-        "name"       : "user_admin2",
-        "role"       : "admin",
+        "email"      : "user_admin2@email.com",
         "first_name" : "first",
         "last_name"  : "last",
-        "email"      : "user_admin2@email.com"
+        "role"       : "admin"
     },
     {
-        "name"       : "user_root1",
-        "role"       : "root",
+        "email"      : "user_root1@email.com",
         "first_name" : "first",
         "last_name"  : "last",
-        "email"      : "user_root1@email.com"
+        "role"       : "root"
     }
 ]

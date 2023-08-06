@@ -19,7 +19,11 @@ output "groups" {
 }
 
 output "users" {
-    value     = {for user in local.users : user => "test"}
+    value     = {for user in local.users : user.email => {
+        name  = user.email
+        class = var.account.class
+        stage = var.account.stage
+    }}
 }
 /*
 output "notifications" {
