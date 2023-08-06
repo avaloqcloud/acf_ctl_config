@@ -41,7 +41,7 @@ locals {
   vaults        = jsondecode(file("${path.module}/param/crypto/vault.json"))
   wallets       = jsondecode(file("${path.module}/param/crypto/wallet.json"))
   # database service parameter
-  databases     = jsondecode(file("${path.module}/param/db/database.json"))
+  databases     = jsondecode(file("${path.module}/param/db/system.json"))
   sizes         = jsondecode(file("${path.module}/param/db/size.json"))
   # compute service parameter
   filesystems   = jsondecode(file("${path.module}/param/compute/filesystem.json"))
