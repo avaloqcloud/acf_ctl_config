@@ -20,7 +20,7 @@ locals {
   # administrator service parameter
   users         = jsondecode(file("${path.module}/param/admin/user.json"))
   roles         = jsondecode(file("${path.module}/param/admin/role.json"))
-  privileges    = jsondecode(file("${path.module}/param/admin/privilege.json"))
+  permissions   = jsondecode(file("${path.module}/param/admin/permission.json"))
   subscriptions = jsondecode(file("${path.module}/param/admin/subscription.json"))
   notifications = jsondecode(file("${path.module}/param/admin/notification.json"))
   domains       = jsondecode(file("${path.module}/param/admin/domain.json"))
