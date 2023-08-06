@@ -10,7 +10,7 @@ variable "account" {
     home           = string,
     location       = string,
     name           = string,
-    parent         = string,
+    parent_id      = string,
     label          = string,
     owner          = string,
     services       = string,

@@ -3,10 +3,10 @@
 
 output "compartments" {
      value = {for domain in local.domains : domain.name => {
-        name     = "${var.account.name}_${domain.name}_compartment"
-        parent   = var.account.parent
-        class    = var.account.class
-        stage    = var.account.stage
+        name      = "${var.account.name}_${domain.name}_compartment"
+        parent_id = var.account.parent_id
+        class     = var.account.class
+        stage     = var.account.stage
     }}
 }
 
