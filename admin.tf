@@ -10,17 +10,19 @@ output "compartments" {
     }}
 }
 
+output "groups" {
+     value = {for group in local.users[*].role : group => {
+        name = "${var.account.name}_${group}"
+    }}
+}
+
 output "users" {
   value       = {
     for user in local.users : user.name => format("%s %s", user.first_name, user.last_name)
   }
 }
-/*
-output "groups" {
-     value = {for operator in flatten(local.domains[*].operators) : operator => {
-        operator = "${local.service_name}_${operator}"
-    }}
 
+/*
 output "notifications" {
      value = {for channel in local.channels : "${local.service_name}_${channel.name}" => {
         topic     = "${local.service_name}_${channel.name}"
