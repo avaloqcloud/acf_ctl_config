@@ -41,7 +41,7 @@ output "oci_ons_notification_topic" {
     } if contains(distinct(local.subscriptions[*].channel), channel.name)}
 }
 
-output "tag_namespaces" {
+output "oci_identity_tag_namespace" {
      value = {
         for namespace in local.controls : format("%s_%s", var.account.name, namespace.name) => namespace.stage
     }
