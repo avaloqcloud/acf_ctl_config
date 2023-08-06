@@ -19,7 +19,7 @@ output "groups" {
 }
 
 output "users" {
-    value     = local.users
+    value     = {for user in local.users : user => "test"}
 }
 /*
 output "notifications" {
