@@ -27,6 +27,7 @@ locals {
   permissions   = jsondecode(file("${path.module}/param/admin/permission.json"))
   roles         = jsondecode(file("${path.module}/param/admin/role.json"))
   subscriptions = jsondecode(file("${path.module}/param/admin/subscription.json"))
+  tags          = jsondecode(file("${path.module}/param/admin/tag.json"))
   users         = jsondecode(file("${path.module}/param/admin/user.json"))
   # network service parameter
   clusters      = jsondecode(file("${path.module}/param/net/cluster.json"))
