@@ -18,15 +18,16 @@ data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.account
 
 locals {
   # administrator service parameter
-  users         = jsondecode(file("${path.module}/param/admin/user.json"))
-  roles         = jsondecode(file("${path.module}/param/admin/role.json"))
-  permissions   = jsondecode(file("${path.module}/param/admin/permission.json"))
-  subscriptions = jsondecode(file("${path.module}/param/admin/subscription.json"))
-  notifications = jsondecode(file("${path.module}/param/admin/notification.json"))
-  domains       = jsondecode(file("${path.module}/param/admin/domain.json"))
   alerts        = jsondecode(file("${path.module}/param/admin/alert.json"))
   budgets       = jsondecode(file("${path.module}/param/admin/budget.json"))
   channels      = jsondecode(file("${path.module}/param/admin/channel.json"))
+  controls       = jsondecode(file("${path.module}/param/admin/control.json"))
+  domains       = jsondecode(file("${path.module}/param/admin/domain.json"))
+  notifications = jsondecode(file("${path.module}/param/admin/notification.json"))
+  permissions   = jsondecode(file("${path.module}/param/admin/permission.json"))
+  roles         = jsondecode(file("${path.module}/param/admin/role.json"))
+  subscriptions = jsondecode(file("${path.module}/param/admin/subscription.json"))
+  users         = jsondecode(file("${path.module}/param/admin/user.json"))
   # network service parameter
   clusters      = jsondecode(file("${path.module}/param/net/cluster.json"))
   firewals      = jsondecode(file("${path.module}/param/net/firewall.json"))
@@ -46,8 +47,8 @@ locals {
   # compute service parameter
   filesystems   = jsondecode(file("${path.module}/param/compute/filesystem.json"))
   # file service parameter
-  buckets       = jsondecode(file("${path.module}/param/file/bucket.json"))
   backups       = jsondecode(file("${path.module}/param/file/backup.json"))
+  buckets       = jsondecode(file("${path.module}/param/file/bucket.json"))
 }
 
 resource "null_resource" "previous" {}

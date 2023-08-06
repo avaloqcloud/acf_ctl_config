@@ -31,7 +31,7 @@ output "notifications" {
         name = format("%s_%s", var.account.name, channel.name)
         protocol  = channel.type
         endpoint  = channel.address
-    } if contains(distinct(local.subscriptions[*].channels), channel.name)}
+    } if contains(distinct(local.subscriptions[*].channel), channel.name)}
 }
 
 output "tag_namespaces" {
