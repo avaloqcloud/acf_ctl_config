@@ -1,7 +1,19 @@
 [
     {
-        "name"       : "user_1",
+        "name"       : "user_admin1",
         "role"       : "admin",
+        "first_name" : "first",
+        "last_name"  : "last"
+    },
+    {
+        "name"       : "user_admin2",
+        "role"       : "admin",
+        "first_name" : "first",
+        "last_name"  : "last"
+    },
+    {
+        "name"       : "user_1",
+        "role"       : "root",
         "first_name" : "first",
         "last_name"  : "last"
     }
