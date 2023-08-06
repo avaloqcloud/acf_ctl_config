@@ -17,6 +17,7 @@ data "oci_identity_availability_domains" "tenancy" {compartment_id = var.account
 data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.account.tenancy_id}
 
 locals {
+  # identity and access related parameter
   users         = jsondecode(file("${path.module}/param/iam/user.json"))
   roles         = jsondecode(file("${path.module}/param/iam/role.json"))
   privileges    = jsondecode(file("${path.module}/param/iam/privilege.json"))
@@ -26,6 +27,14 @@ locals {
   alerts        = jsondecode(file("${path.module}/param/iam/alert.json"))
   budgets       = jsondecode(file("${path.module}/param/iam/budget.json"))
   channels      = jsondecode(file("${path.module}/param/iam/channel.json"))
+  # network parameter
+  cluster       = jsondecode(file("${path.module}/param/iam/cluster.json"))
+  firewall      = jsondecode(file("${path.module}/param/iam/firewall.json"))
+  gateways      = jsondecode(file("${path.module}/param/iam/gateway.json"))
+  ports         = jsondecode(file("${path.module}/param/iam/port.json"))
+  segments      = jsondecode(file("${path.module}/param/iam/segment.json"))
+  subnets       = jsondecode(file("${path.module}/param/iam/subnet.json"))
+  zones         = jsondecode(file("${path.module}/param/iam/zone.json"))
 }
 
 resource "null_resource" "previous" {}
