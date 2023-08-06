@@ -3,7 +3,7 @@
 
 output "compartments" {
      value = {for domain in local.domains : domain.name => {
-        name      = "${var.account.name}_${domain.name}_compartment"
+        name      = format("%s_%s_compartment", var.account.name, domain.name)
         parent_id = var.account.parent_id
         class     = var.account.class
         stage     = var.account.stage
@@ -11,14 +11,15 @@ output "compartments" {
 }
 
 output "groups" {
-     value = {for group in local.users[*].role : group => {
-        name = "${var.account.name}_${group}"
+     value = {for group in distinct(local.users[*].role) : group => {
+        name = format("%s_%s", var.account.name, group)
     }}
 }
 
 output "users" {
   value       = {
-    for user in local.users : user.name => format("%s %s", user.first_name, user.last_name)
+    for user in local.users : user.name => 
+        format("%s %s", user.first_name, user.last_name)
   }
 }
 
