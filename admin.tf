@@ -26,14 +26,14 @@ output "users" {
     }}
 }
 
-/*
 output "notifications" {
-     value = {for channel in local.channels : "${local.service_name}_${channel.name}" => {
-        topic     = "${local.service_name}_${channel.name}"
+    value = {for channel in local.channels : channel => {
+        name = format("%s_%s", var.account.name, channel)
         protocol  = channel.type
         endpoint  = channel.address
-    } if contains(distinct(flatten("${local.domains[*].channels}")), channel.name)}
-
+    } if contains(distinct(local.subscriptions[*].channels), channel.name)}
+}
+/*
 output "policies" {
      value = {for operator in local.operators : operator.name => {
         name        = "${local.service_name}_${operator.name}"
