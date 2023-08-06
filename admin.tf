@@ -3,12 +3,12 @@
 
 output "tenancy" {
     compartments = {for domain in local.domains : domain.name => {
-        name     = "${local.service_name}_${domain.name}_compartment"
-        parent   = domain.contract
-        class    = domain.class
-        contract = domain.contract
+        name     = "${var.account.name}_${domain.name}_compartment"
+        parent   = domain.parent
+        class    = var.account.class
+        stage    = var.account.stage
     }}
-
+/*
     groups       = {for operator in flatten(local.domains[*].operators) : operator => {
         operator = "${local.service_name}_${operator}"
     }}
@@ -42,4 +42,5 @@ output "tenancy" {
         default       = length(flatten([tag.values])) > 1 ? element(tag.values,0) : tostring(tag.values)
         cost_tracking = tag.cost_tracking
     }}
+*/
 }

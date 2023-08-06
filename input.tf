@@ -5,26 +5,20 @@
 
 variable "account" {
   type = object({
-    tenancy_id     = string,
+    class          = number,
     compartment_id = string,
     home           = string,
+    location       = string,
+    name           = string,
+    parent         = string,
+    label          = string,
+    owner          = string,
+    services       = string,
+    stage          = number,
+    source         = string,
+    scope          = list(any)
+    tenancy_id     = string,
     user_id        = string
   })
-  description = "Prepopulated parameter from the active oci account"
-}
-
-variable "schema" {
-  type = object({
-    class        = number,
-    location     = string,
-    organization = string,
-    parent       = string,
-    project      = string,
-    owner        = string,
-    services     = string,
-    stage        = number,
-    source       = string,
-    scope        = list(any)
-  })
-  description = "Service Configuration"
+  description = "Configuration parameter from the active oci account"
 }
