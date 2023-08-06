@@ -17,13 +17,13 @@ data "oci_identity_availability_domains" "tenancy" {compartment_id = var.account
 data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.account.tenancy_id}
 
 locals {
-  parameter = flatten([
-    fileset("${path.module}/param/iam", "*.json"),
-    fileset("${path.module}/param/net", "*.json"),
-    fileset("${path.module}/param/crypto", "*.json"),
-    fileset("${path.module}/param/data", "*.json")
-  ])
-  users = jsondecode(file("${path.module}/param/iam/user.json"))
+  users         = jsondecode(file("${path.module}/param/iam/user.json"))
+  alerts        = jsondecode(file("${path.module}/param/iam/alert.json"))
+  budgets       = jsondecode(file("${path.module}/param/iam/budget.json"))
+  channels      = jsondecode(file("${path.module}/param/iam/channel.json"))
+  notifications = jsondecode(file("${path.module}/param/iam/notification.json"))
+  privileges    = jsondecode(file("${path.module}/param/iam/privilege.json"))
+  roles         = jsondecode(file("${path.module}/param/iam/role.json"))
 }
 
 resource "null_resource" "previous" {}

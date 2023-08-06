@@ -1,6 +1,6 @@
 [
     {
-        "user_name"  : "user_1",
+        "name"       : "user_1",
         "role"       : "admin",
         "first_name" : "first",
         "last_name"  : "last"
