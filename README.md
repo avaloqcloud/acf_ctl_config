@@ -18,9 +18,51 @@ The configuration module produces a set of topology definitions on form of Terra
 - Role based access controls
 
 
-## Parameterization
+## Requirements
 
 In the configuration module parameter are captured in JSON format and stored in the '/param' directory. The configuration module parses parameters through with the terraform engine to create the resource blocks that inherit use case realted dependencies. Instead of client specific scripts, use case specific parameter is applied to a harmonized logic.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_oci"></a> [oci](#provider\_oci) | n/a |
+| <a name="provider_null"></a> [null](#provider\_null) | n/a |
+| <a name="provider_time"></a> [time](#provider\_time) | n/a |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [null_resource.previous](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
+| [time_sleep.wait](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
+| [oci_identity_availability_domains.tenancy](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/identity_availability_domains) | data source |
+| [oci_identity_compartment.parent](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/identity_compartment) | data source |
+| [oci_identity_regions.tenancy](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/identity_regions) | data source |
+| [oci_identity_tenancy.account](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/identity_tenancy) | data source |
+| [oci_objectstorage_namespace.tenancy](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/objectstorage_namespace) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_account"></a> [account](#input\_account) | Configuration parameter from the active oci account | <pre>object({<br>    class          = number,<br>    compartment_id = string,<br>    compliance     = list(any),<br>    home           = string,<br>    location       = string,<br>    name           = string,<br>    parent_id      = string,<br>    label          = string,<br>    owner          = string,<br>    services       = string,<br>    stage          = number,<br>    source         = string,<br>    scope          = list(any),<br>    tenancy_id     = string,<br>    user_id        = string<br>  })</pre> | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_oci_identity_compartment"></a> [oci\_identity\_compartment](#output\_oci\_identity\_compartment) | n/a |
+| <a name="output_oci_identity_group"></a> [oci\_identity\_group](#output\_oci\_identity\_group) | n/a |
+| <a name="output_oci_identity_user"></a> [oci\_identity\_user](#output\_oci\_identity\_user) | n/a |
+| <a name="output_oci_identity_tag_namespace"></a> [oci\_identity\_tag\_namespace](#output\_oci\_identity\_tag\_namespace) | n/a |
+| <a name="output_oci_identity_tag"></a> [oci\_identity\_tag](#output\_oci\_identity\_tag) | n/a |
+| <a name="output_oci_ons_notification_topic"></a> [oci\_ons\_notification\_topic](#output\_oci\_ons\_notification\_topic) | n/a |
+| <a name="output_oci_identity_policy"></a> [oci\_identity\_policy](#output\_oci\_identity\_policy) | n/a |
 
 ## Contributing
 
