@@ -30,10 +30,6 @@ In the configuration module parameter are captured in JSON format and stored in 
 | <a name="provider_null"></a> [null](#provider\_null) | n/a |
 | <a name="provider_time"></a> [time](#provider\_time) | n/a |
 
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
