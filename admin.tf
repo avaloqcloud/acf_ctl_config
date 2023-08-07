@@ -16,7 +16,7 @@ output "oci_identity_group" {
     value = {for group in distinct(local.users[*].role) : group => {
         name           = format("%s_%s", var.account.name, group)
         compartment_id = var.account.parent_id
-        description    = "${group} role defined for ${data.oci_identity_compartment.parent.name}"
+        description    = "${group} role defined for ${data.oci_identity_compartment.parent.name} identity domain"
         class          = var.account.class
     }}
 }
@@ -36,7 +36,7 @@ output "oci_identity_user" {
 output "oci_identity_tag_namespace" {
      value = {for namespace in local.controls : namespace.name => {
         compartment_id = var.account.parent_id
-        description    = "${namespace.name} control for ${var.account.parent_id}"
+        description    = "${namespace.name} control for ${data.oci_identity_compartment.parent.name} identity domain"
         class          = var.account.class
         name           = format("%s_%s", var.account.name, namespace.name)
     } if namespace.stage <= var.account.stage }
