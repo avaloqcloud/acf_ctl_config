@@ -17,6 +17,7 @@ output "oci_identity_group" {
         name           = format("%s_%s", var.account.name, group)
         compartment_id = var.account.parent_id
         description    = "${group} role defined for ${var.account.parent_id}"
+        class          = var.account.class
     }}
 }
 
@@ -25,26 +26,18 @@ output "oci_identity_user" {
         compartment_id = var.account.parent_id
         name           = user.email
         description    = format("%s %s", user.first_name, user.last_name)
+        class          = var.account.class
         defined_tags   = {"budget.cost_center"= user.cost_center}
         email          = user.email
         freeform_tags  = {"department" = user.department}
-        class          = var.account.class
     } if user.stage <= var.account.stage }
-}
-
-output "oci_ons_notification_topic" {
-    value = {for channel in local.channels : channel.name => {
-        compartment_id = var.account.parent_id
-        name           = format("%s_%s_%s", var.account.name, channel.service, channel.name)
-        protocol       = channel.service
-        endpoint       = channel.address
-    } if contains(distinct(local.subscriptions[*].channel), channel.name)}
 }
 
 output "oci_identity_tag_namespace" {
      value = {for namespace in local.controls : namespace.name => {
         compartment_id = var.account.parent_id
         description    = "${namespace.name} control for ${var.account.parent_id}"
+        class          = var.account.class
         name           = format("%s_%s", var.account.name, namespace.name)
     } if namespace.stage <= var.account.stage }
 }
@@ -53,6 +46,7 @@ output "oci_identity_tag" {
      value = {for tag in local.tags : tag.name => {
         name             = tag.name
         description      = "${tag.name} control"
+        class            = var.account.class
         tag_namespace_id = local.tag_map[tag.name]
         values           = tag.values
         default          = length(flatten([tag.values])) > 1 ? element(tag.values,0) : tostring(tag.values)
@@ -60,11 +54,22 @@ output "oci_identity_tag" {
     } if local.tag_namespaces["${local.tag_map[tag.name]}"] <= var.account.stage }
 }
 
+output "oci_ons_notification_topic" {
+    value = {for channel in local.channels : channel.name => {
+        compartment_id = var.account.parent_id
+        name           = format("%s_%s_%s", var.account.name, channel.service, channel.name)
+        class          = var.account.class
+        protocol       = channel.service
+        endpoint       = channel.address
+    } if contains(distinct(local.subscriptions[*].channel), channel.name)}
+}
+
 output "oci_identity_policy" {
      value = {for permission in local.permissions : permission.role => {
         compartment_id = var.account.parent_id
         description    = permission.policy
+        class          = var.account.class
         name           = format("%s_%s_policy", var.account.name, permission.role)
         statements     = permission.permissions
-    } if contains(distinct(local.users[*].role), permission.role) }
+    }... if contains(distinct(local.users[*].role), permission.role) }
 }
