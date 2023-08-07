@@ -16,7 +16,7 @@ output "oci_identity_group" {
     value = {for group in distinct(local.users[*].role) : group => {
         name           = format("%s_%s", var.account.name, group)
         compartment_id = var.account.parent_id
-        description    = "${group} role defined for ${var.account.parent_id}"
+        description    = "${group} role defined for ${data.oci_identity_compartment.parent.name}"
         class          = var.account.class
     }}
 }
