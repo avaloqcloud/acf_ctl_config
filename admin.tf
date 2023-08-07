@@ -61,9 +61,9 @@ output "oci_identity_tag" {
 }
 
 output "oci_identity_policy" {
-     value = {for permission in local.permissions : permission.name => {
+     value = {for permission in local.permissions : permission.role => {
         compartment_id = var.account.parent_id
-        description    = permission.name
+        description    = permission.policy
         name           = format("%s_%s_policy", var.account.name, permission.role)
         statements     = permission.permissions
     } if contains(distinct(local.users[*].role), permission.role) }
