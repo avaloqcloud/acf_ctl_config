@@ -34,7 +34,7 @@ output "oci_identity_user" {
 }
 
 output "oci_identity_tag_namespace" {
-     value = {for namespace in local.controls : namespace.name => {
+    value = {for namespace in local.controls : namespace.name => {
         compartment_id = var.account.parent_id
         description    = "${namespace.name} control for ${data.oci_identity_compartment.parent.name} identity domain"
         class          = var.account.class
@@ -43,7 +43,7 @@ output "oci_identity_tag_namespace" {
 }
 
 output "oci_identity_tag" {
-     value = {for tag in local.tags : tag.name => {
+    value = {for tag in local.tags : tag.name => {
         name             = tag.name
         description      = "${tag.name} control"
         class            = var.account.class
@@ -65,7 +65,7 @@ output "oci_ons_notification_topic" {
 }
 
 output "oci_identity_policy" {
-     value = {for permission in local.permissions : permission.role => {
+    value = {for permission in local.permissions : permission.role => {
         compartment_id = var.account.parent_id
         description    = permission.policy
         class          = var.account.class
