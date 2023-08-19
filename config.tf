@@ -18,18 +18,23 @@ data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.account
 data "oci_identity_compartment"          "parent"  {id             = var.account.parent_id}
 
 locals {
-  # administrator service parameter
-  alerts        = jsondecode(file("${path.module}/param/admin/alert.json"))
-  budgets       = jsondecode(file("${path.module}/param/admin/budget.json"))
-  channels      = jsondecode(file("${path.module}/param/admin/channel.json"))
-  controls      = jsondecode(file("${path.module}/param/admin/control.json"))
-  domains       = jsondecode(file("${path.module}/param/admin/domain.json"))
-  notifications = jsondecode(file("${path.module}/param/admin/notification.json"))
-  permissions   = jsondecode(file("${path.module}/param/admin/permission.json"))
-  roles         = jsondecode(file("${path.module}/param/admin/role.json"))
-  subscriptions = jsondecode(file("${path.module}/param/admin/subscription.json"))
-  tags          = jsondecode(file("${path.module}/param/admin/tag.json"))
-  users         = jsondecode(file("${path.module}/param/admin/user.json"))
+  # identity and access service parameter
+  alerts        = jsondecode(file("${path.module}/param/iam/alert.json"))
+  budgets       = jsondecode(file("${path.module}/param/iam/budget.json"))
+  channels      = jsondecode(file("${path.module}/param/iam/channel.json"))
+  controls      = jsondecode(file("${path.module}/param/iam/control.json"))
+  domains       = jsondecode(file("${path.module}/param/iam/domain.json"))
+  notifications = jsondecode(file("${path.module}/param/iam/notification.json"))
+  permissions   = jsondecode(file("${path.module}/param/iam/permission.json"))
+  roles         = jsondecode(file("${path.module}/param/iam/role.json"))
+  subscriptions = jsondecode(file("${path.module}/param/iam/subscription.json"))
+  tags          = jsondecode(file("${path.module}/param/iam/tag.json"))
+  users         = jsondecode(file("${path.module}/param/iam/user.json"))
+  # crypto service parameter
+  secrets       = jsondecode(file("${path.module}/param/crypto/secret.json"))
+  signatures    = jsondecode(file("${path.module}/param/crypto/signature.json"))
+  vaults        = jsondecode(file("${path.module}/param/crypto/vault.json"))
+  wallets       = jsondecode(file("${path.module}/param/crypto/wallet.json"))
   # network service parameter
   clusters      = jsondecode(file("${path.module}/param/net/cluster.json"))
   firewals      = jsondecode(file("${path.module}/param/net/firewall.json"))
@@ -38,11 +43,6 @@ locals {
   segments      = jsondecode(file("${path.module}/param/net/segment.json"))
   subnets       = jsondecode(file("${path.module}/param/net/subnet.json"))
   zones         = jsondecode(file("${path.module}/param/net/zone.json"))
-  # crypto service parameter
-  secrets       = jsondecode(file("${path.module}/param/crypto/secret.json"))
-  signatures    = jsondecode(file("${path.module}/param/crypto/signature.json"))
-  vaults        = jsondecode(file("${path.module}/param/crypto/vault.json"))
-  wallets       = jsondecode(file("${path.module}/param/crypto/wallet.json"))
   # database service parameter
   databases     = jsondecode(file("${path.module}/param/db/system.json"))
   sizes         = jsondecode(file("${path.module}/param/db/size.json"))
