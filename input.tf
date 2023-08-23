@@ -5,9 +5,8 @@
 
 variable "account" {
   type = object({
-    class          = number,
     compartment_id = string,
-    compliance     = list(any),
+    controls       = list(any),
     home           = string,
     location       = string,
     name           = string,
