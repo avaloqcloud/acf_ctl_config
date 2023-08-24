@@ -3,7 +3,7 @@
 
 // readme.md created with https://terraform-docs.io/: terraform-docs markdown --sort=false ./ > ./readme.md
 
-variable "account" {
+variable "setting" {
   type = object({
     compartment_id = string,
     controls       = list(any),

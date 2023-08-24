@@ -11,11 +11,11 @@ terraform {
     }
 }
 
-data "oci_identity_tenancy"              "account" {tenancy_id     = var.account.tenancy_id}
+data "oci_identity_tenancy"              "account" {tenancy_id     = var.setting.tenancy_id}
 data "oci_identity_regions"              "tenancy" {}
-data "oci_identity_availability_domains" "tenancy" {compartment_id = var.account.tenancy_id}
-data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.account.tenancy_id}
-data "oci_identity_compartment"          "parent"  {id             = var.account.parent_id}
+data "oci_identity_availability_domains" "tenancy" {compartment_id = var.setting.tenancy_id}
+data "oci_objectstorage_namespace"       "tenancy" {compartment_id = var.setting.tenancy_id}
+data "oci_identity_compartment"          "parent"  {id             = var.setting.parent_id}
 
 locals {
   # identity and access service parameter
@@ -55,9 +55,9 @@ locals {
   # Merge tags with with the respective namespace information
   tag_map = zipmap(
     flatten([for tag in local.controls[*].tags : tag]),
-    flatten([for control in local.controls : [for tag in control.tags : "${var.account.name}_${control.name}"]])
+    flatten([for control in local.controls : [for tag in control.tags : "${var.setting.name}_${control.name}"]])
   ) 
-  tag_namespaces = {for namespace in local.controls : "${var.account.name}_${namespace.name}" => namespace.stage} 
+  tag_namespaces = {for namespace in local.controls : "${var.setting.name}_${namespace.name}" => namespace.stage} 
 
 }
 

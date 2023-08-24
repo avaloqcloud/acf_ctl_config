@@ -3,62 +3,62 @@
 
 output "oci_identity_compartment" {
     value = {for domain in local.domains : domain.name => {
-        name           = format("%s_%s_compartment", var.account.name, domain.name)
-        compartment_id = var.account.parent_id
-        controls       = var.account.controls
+        name           = format("%s_%s_compartment", var.setting.name, domain.name)
+        compartment_id = var.setting.parent_id
+        controls       = var.setting.controls
         description    = domain.description
         defined_tags   = {"budget.cost_center"= domain.cost_center}
         freeform_tags  = {"department" = domain.department}
-    } if domain.stage <= var.account.stage }
+    } if domain.stage <= var.setting.stage }
 }
 
 output "oci_identity_group" {
     value = {for group in distinct(local.users[*].role) : group => {
-        name           = format("%s_%s", var.account.name, group)
-        compartment_id = var.account.parent_id
-        controls       = var.account.controls
+        name           = format("%s_%s", var.setting.name, group)
+        compartment_id = var.setting.parent_id
+        controls       = var.setting.controls
         description    = "${group} role defined for ${data.oci_identity_compartment.parent.name} identity domain"
     }}
 }
 
 output "oci_identity_user" {
     value = {for user in local.users : user.email => {
-        compartment_id = var.account.parent_id
-        controls       = var.account.controls
+        compartment_id = var.setting.parent_id
+        controls       = var.setting.controls
         name           = user.email
         description    = format("%s %s", user.first_name, user.last_name)
         defined_tags   = {"budget.cost_center"= user.cost_center}
         email          = user.email
         freeform_tags  = {"department" = user.department}
-    } if user.stage <= var.account.stage }
+    } if user.stage <= var.setting.stage }
 }
 
 output "oci_identity_tag_namespace" {
     value = {for namespace in local.controls : namespace.name => {
-        compartment_id = var.account.parent_id
-        controls       = var.account.controls
+        compartment_id = var.setting.parent_id
+        controls       = var.setting.controls
         description    = "${namespace.name} control for ${data.oci_identity_compartment.parent.name} identity domain"
-        name           = format("%s_%s", var.account.name, namespace.name)
-    } if namespace.stage <= var.account.stage }
+        name           = format("%s_%s", var.setting.name, namespace.name)
+    } if namespace.stage <= var.setting.stage }
 }
 
 output "oci_identity_tag" {
     value = {for tag in local.tags : tag.name => {
-        controls         = var.account.controls
+        controls         = var.setting.controls
         name             = tag.name
         description      = "${tag.name} control"
         tag_namespace_id = local.tag_map[tag.name]
         values           = tag.values
         default          = length(flatten([tag.values])) > 1 ? element(tag.values,0) : tostring(tag.values)
         is_cost_tracking = tag.cost_tracking
-    } if local.tag_namespaces["${local.tag_map[tag.name]}"] <= var.account.stage }
+    } if local.tag_namespaces["${local.tag_map[tag.name]}"] <= var.setting.stage }
 }
 
 output "oci_ons_notification_topic" {
     value = {for channel in local.channels : channel.name => {
-        compartment_id = var.account.parent_id
-        controls       = var.account.controls
-        name           = format("%s_%s_%s", var.account.name, channel.service, channel.name)
+        compartment_id = var.setting.parent_id
+        controls       = var.setting.controls
+        name           = format("%s_%s_%s", var.setting.name, channel.service, channel.name)
         protocol       = channel.service
         endpoint       = channel.address
     } if contains(distinct(local.subscriptions[*].channel), channel.name)}
@@ -66,10 +66,10 @@ output "oci_ons_notification_topic" {
 
 output "oci_identity_policy" {
     value = {for permission in local.permissions : permission.role => {
-        compartment_id = var.account.parent_id
-        controls       = var.account.controls
+        compartment_id = var.setting.parent_id
+        controls       = var.setting.controls
         description    = permission.policy
-        name           = format("%s_%s_policy", var.account.name, permission.role)
+        name           = format("%s_%s_policy", var.setting.name, permission.role)
         statements     = permission.permissions
     }... if contains(distinct(local.users[*].role), permission.role) }
 }
