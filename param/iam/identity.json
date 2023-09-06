@@ -1,0 +1,20 @@
+[
+  {
+    "name"         : "HelpDesk",
+    "description"  : "admin role",
+    "class"        : "group",
+    "reference"    : "$compartment_management",
+    "subscription" : "limit_alerts",
+    "resource"     : "",
+    "stage"        : 0
+  },
+  {
+    "name"         : "user_admin1@email.com",
+    "description"  : "Individual user",
+    "class"        : "user",
+    "reference"    : "$group_HelpDesk",
+    "subscription" : "budget_alerts",
+    "resource"     : "",
+    "stage"        : 0
+  }
+]

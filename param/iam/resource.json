@@ -1,0 +1,10 @@
+[
+  {
+    "name"         : "HelpDesk",
+    "description"  : "admin role",
+    "type"         : "crypto",
+    "reference"    : "vault",
+    "resource"     : "key",
+    "stage"        : 0
+  }
+]

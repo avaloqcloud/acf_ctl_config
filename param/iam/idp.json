@@ -1,0 +1,8 @@
+[
+    {
+      "name"        : "client_project",
+      "description" : "description",
+      "provider"    : "okta",
+      "address"     : "https://www.okta.com"
+    }
+]

@@ -1,0 +1,7 @@
+[
+    {
+      "name"        : "client",
+      "description" : "description",
+      "server"      : "idp"
+    }
+]
