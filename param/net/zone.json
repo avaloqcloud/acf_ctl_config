@@ -2,11 +2,11 @@
     {
       "name"        : "zone_public",
       "description" : "Public VCN",
-      "cidr_blocks" : "172.16.0.0/16"
+      "cidr_blocks" : ["172.16.0.0/16"]
     },
     {
       "name"        : "zone_private",
       "description" : "Private vcn",
-      "cidr_blocks" : "10.0.0.0/16"
+      "cidr_blocks" : ["10.0.0.0/16"]
     }
 ]
