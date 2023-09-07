@@ -23,9 +23,9 @@
 
 output "oci_core_vcn" {
     value = {for zone in local.zones : zone.name => {
-        name           = format("%s_%s_compartment", var.setting.name, zone.name)
+        name           = format("%s_%s_vcn", var.setting.name, zone.name)
         compartment_id = var.setting.parent_id
         description    = zone.description
-        cidr           = zone.cidr
+        cidr_blocks    = zone.cidr_blocks
     }  }
 }
