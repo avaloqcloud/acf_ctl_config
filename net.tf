@@ -22,10 +22,10 @@
 # }
 
 output "oci_core_vcn" {
-    value = {for zone in local.zones : zone.name => {
+    value = for zone in local.zones : zone.name => {
         name           = format("%s_%s_compartment", var.setting.name, zone.name)
         compartment_id = var.setting.parent_id
         description    = zone.description
         cidr           = zone.cidr
-    } if zone.stage <= var.setting.stage }
+    }
 }
