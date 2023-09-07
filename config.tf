@@ -26,10 +26,10 @@ locals {
   domains       = jsondecode(file("${path.module}/param/iam/domain.json"))
   notifications = jsondecode(file("${path.module}/param/iam/notification.json"))
   permissions   = jsondecode(file("${path.module}/param/iam/permission.json"))
-  roles         = jsondecode(file("${path.module}/param/iam/role.json"))
+  # roles         = jsondecode(file("${path.module}/param/iam/role.json")) Removed along with json file
   subscriptions = jsondecode(file("${path.module}/param/iam/subscription.json"))
   tags          = jsondecode(file("${path.module}/param/iam/tag.json"))
-  users         = jsondecode(file("${path.module}/param/iam/user.json"))
+  # users         = jsondecode(file("${path.module}/param/iam/user.json")) Removed along with json file
   # crypto service parameter
   secrets       = jsondecode(file("${path.module}/param/crypto/secret.json"))
   signatures    = jsondecode(file("${path.module}/param/crypto/signature.json"))
